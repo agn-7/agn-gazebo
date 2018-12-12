@@ -6,7 +6,7 @@
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
   <arg name="verbose" default="false"/>
-  <arg name="world_name" default="$(find agn_gazebo)/world/velodyne.world"/>
+  <arg name="world_name" default="$(find agn_gazebo)/worlds/velodyne.world"/>
 
   <!-- Start gazebo and load the world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch" >
