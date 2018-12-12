@@ -189,7 +189,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/benyamin/catkin_ws/src/p3dx_description/meshes/chassis.stl</uri>
+              <uri>/home/agn/catkin_ws/src/p3dx_description/meshes/chassis.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -204,7 +204,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/benyamin/catkin_ws/src/p3dx_description/meshes/front_sonar.stl</uri>
+              <uri>/home/agn/catkin_ws/src/p3dx_description/meshes/front_sonar.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -219,7 +219,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/benyamin/catkin_ws/src/p3dx_description/meshes/lms100.dae</uri>
+              <uri>/home/agn/catkin_ws/src/p3dx_description/meshes/lms100.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -228,7 +228,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/benyamin/catkin_ws/src/p3dx_description/meshes/top.stl</uri>
+              <uri>/home/agn/catkin_ws/src/p3dx_description/meshes/top.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -364,7 +364,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/benyamin/catkin_ws/src/p3dx_description/meshes/left_wheel.stl</uri>
+              <uri>/home/agn/catkin_ws/src/p3dx_description/meshes/left_wheel.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -379,7 +379,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/benyamin/catkin_ws/src/p3dx_description/meshes/left_hubcap.stl</uri>
+              <uri>/home/agn/catkin_ws/src/p3dx_description/meshes/left_hubcap.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -489,7 +489,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/benyamin/catkin_ws/src/p3dx_description/meshes/right_wheel.stl</uri>
+              <uri>/home/agn/catkin_ws/src/p3dx_description/meshes/right_wheel.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -504,7 +504,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/benyamin/catkin_ws/src/p3dx_description/meshes/right_hubcap.stl</uri>
+              <uri>/home/agn/catkin_ws/src/p3dx_description/meshes/right_hubcap.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -512,7 +512,7 @@
               <name>Gazebo/Yellow</name>
               <uri>__default__</uri>
             </script>
-          </material>
+          </material>h
         </visual>
         <velocity_decay>
           <linear>0</linear>
@@ -575,7 +575,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/benyamin/catkin_ws/src/p3dx_description/meshes/swivel.stl</uri>
+              <uri>/home/agn/catkin_ws/src/p3dx_description/meshes/swivel.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -681,7 +681,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/benyamin/catkin_ws/src/p3dx_description/meshes/center_wheel.stl</uri>
+              <uri>/home/agn/catkin_ws/src/p3dx_description/meshes/center_wheel.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -696,7 +696,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/benyamin/catkin_ws/src/p3dx_description/meshes/center_hubcap.stl</uri>
+              <uri>/home/agn/catkin_ws/src/p3dx_description/meshes/center_hubcap.stl</uri>
             </mesh>
           </geometry>
           <material>
