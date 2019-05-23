@@ -30,39 +30,39 @@
 	<!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
 	<node name="urdf_spawner1" pkg="gazebo_ros" type="spawn_model"
 		respawn="false" output="screen" 
-		args="-file /home/agn/catkin_ws/src/aGn_packages/agn_gazebo/models/school/model.sdf  -x 0 -y 20 -sdf -model model1.sdf" />
+		args="-file '$(find agn_gazebo)'/models/school/model.sdf  -x 0 -y 20 -sdf -model model1.sdf" />
 
 	<node name="urdf_spawner2" pkg="gazebo_ros" type="spawn_model"
 		respawn="false" output="screen" 
-		args="-file /home/agn/catkin_ws/src/aGn_packages/agn_gazebo/models/ragdoll/model.sdf  -x 4 -y 4 -sdf -model model2.sdf" />
+		args="-file '$(find agn_gazebo)'/models/ragdoll/model.sdf  -x 4 -y 4 -sdf -model model2.sdf" />
 
 	<node name="urdf_spawner3" pkg="gazebo_ros" type="spawn_model"
 		respawn="false" output="screen" 
-		args="-file /home/agn/catkin_ws/src/aGn_packages/agn_gazebo/models/oak_tree/model.sdf  -x 5 -y 5 -sdf -model model3.sdf" />
+		args="-file '$(find agn_gazebo)'/models/oak_tree/model.sdf  -x 5 -y 5 -sdf -model model3.sdf" />
 
 	<node name="urdf_spawner4" pkg="gazebo_ros" type="spawn_model"
 		respawn="false" output="screen" 
-		args="-file /home/agn/catkin_ws/src/aGn_packages/agn_gazebo/models/pine_tree/model.sdf  -x -5 -y 5 -sdf -model model4.sdf" />
+		args="-file '$(find agn_gazebo)'/models/pine_tree/model.sdf  -x -5 -y 5 -sdf -model model4.sdf" />
 
 	<node name="urdf_spawner5" pkg="gazebo_ros" type="spawn_model"
 		respawn="false" output="screen" 
-		args="-file /home/agn/catkin_ws/src/aGn_packages/agn_gazebo/models/ambulance/model.sdf  -x -8 -y 1 -sdf -model model5.sdf" />
+		args="-file '$(find agn_gazebo)'/models/ambulance/model.sdf  -x -8 -y 1 -sdf -model model5.sdf" />
 
 	<node name="urdf_spawner6" pkg="gazebo_ros" type="spawn_model"
 		respawn="false" output="screen" 
-		args="-file /home/agn/catkin_ws/src/aGn_packages/agn_gazebo/models/person_standing/model.sdf  -x -2 -y 3.5 -sdf -model model6.sdf" />
+		args="-file '$(find agn_gazebo)'/models/person_standing/model.sdf  -x -2 -y 3.5 -sdf -model model6.sdf" />
 
 	<node name="urdf_spawner7" pkg="gazebo_ros" type="spawn_model"
 		respawn="false" output="screen" 
-		args="-file /home/agn/catkin_ws/src/aGn_packages/agn_gazebo/models/person_standing/model.sdf  -x 2 -y 3 -sdf -model model7.sdf" />
+		args="-file '$(find agn_gazebo)'/models/person_standing/model.sdf  -x 2 -y 3 -sdf -model model7.sdf" />
 
 	<node name="urdf_spawner8" pkg="gazebo_ros" type="spawn_model"
 		respawn="false" output="screen" 
-		args="-file /home/agn/catkin_ws/src/aGn_packages/agn_gazebo/models/person_standing/model.sdf  -x 0 -y 2 -sdf -model model8.sdf" />
+		args="-file '$(find agn_gazebo)'/models/person_standing/model.sdf  -x 0 -y 2 -sdf -model model8.sdf" />
 
 	<node name="urdf_spawner9" pkg="gazebo_ros" type="spawn_model"
 		respawn="false" output="screen" 
-		args="-file /home/agn/catkin_ws/src/aGn_packages/agn_gazebo/models/house_1/model.sdf  -x 20 -y 0 -Y -1.57 -sdf -model model9.sdf" />
+		args="-file '$(find agn_gazebo)'/models/house_1/model.sdf  -x 20 -y 0 -Y -1.57 -sdf -model model9.sdf" />
 
   <!-- RViz -->
   <arg name="rviz" default="true"/>
