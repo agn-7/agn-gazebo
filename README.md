@@ -1,3 +1,7 @@
+# Dependencies:
+ - [Velodyne Simulator](https://github.com/agn-7/modified_velodyne_simulator)
+
+---
 # Install:
 Clone this project on your ROS workspace, then run the command below:
 
