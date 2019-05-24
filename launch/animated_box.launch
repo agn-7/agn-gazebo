@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+    <arg name="verbose" default="false"/>
+    <arg name="world_name" default="$(find agn_gazebo)/worlds/velodyne.world"/>
+
+    <!-- Start gazebo and load the world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="headless" value="$(arg headless)"/>
+        <arg name="debug" value="$(arg debug)"/>
+        <arg name="verbose" value="$(arg verbose)"/>
+        <arg name="world_name" value="$(arg world_name)"/>
+    </include>
+
+
+    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+    <node name="urdf_spawner1" pkg="gazebo_ros" type="spawn_model"
+          respawn="false" output="screen"
+          args="-file '$(find agn_gazebo)'/models/animated_box/model.sdf -sdf -model model1.sdf" />
+
+</launch>
