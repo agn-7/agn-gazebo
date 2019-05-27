@@ -18,10 +18,10 @@ twist: {linear: {x: 0.0 , y: 0 ,z: 0}, angular: {x: 0.0 , y: 0 , z: 0.0}},
 reference_frame: world}}'
 """
 
-RADIUS = 2
-STEP = .01
-SLEEP = .1
-MODEL_NAME = 'model1.sdf'
+RADIUS = float(rospy.get_param('/agn_gazebo/radius'))
+STEP = float(rospy.get_param('/agn_gazebo/step'))
+SLEEP = float(rospy.get_param('/agn_gazebo/sleep'))
+MODEL_NAME = rospy.get_param('/agn_gazebo/model_name')
 
 
 class Animating(object):
@@ -54,7 +54,7 @@ class Animating(object):
                 msg_.pose.position.x += STEP * x_sign
                 msg_.pose.position.y = (math.sqrt(abs(RADIUS**2 -
                                                       (msg_.pose.position.x - a)**2)) * y_sign) + b
-                msg_.pose.position.z = 1
+                msg_.pose.position.z = 0
                 msg_.pose.orientation.x = 0
                 msg_.pose.orientation.y = 0
                 msg_.pose.orientation.z = 0

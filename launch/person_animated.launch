@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="verbose" default="false"/>
+  <arg name="world_name" default="$(find agn_gazebo)/worlds/velodyne.world"/>
+
+  <!-- Start gazebo and load the world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="verbose" value="$(arg verbose)"/>
+    <arg name="world_name" value="$(arg world_name)"/>
+  </include>
+
+  <!-- Spawn the example robot -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find velodyne_description)/urdf/example.urdf.xacro'" />
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_model" args="-urdf -param /robot_description -model example"/>
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="30.0" />
+  </node>
+
+
+	<!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+	<node name="urdf_spawner1" pkg="gazebo_ros" type="spawn_model"
+		respawn="false" output="screen"
+		args="-file '$(find agn_gazebo)'/models/school/model.sdf  -x 0 -y 20 -sdf -model model1.sdf" />
+
+	<!--node name="urdf_spawner2" pkg="gazebo_ros" type="spawn_model"
+		respawn="false" output="screen"
+		args="-file '$(find agn_gazebo)'/models/ragdoll/model.sdf  -x 4 -y 4 -sdf -model model2.sdf" / -->
+
+	<node name="urdf_spawner3" pkg="gazebo_ros" type="spawn_model"
+		respawn="false" output="screen"
+		args="-file '$(find agn_gazebo)'/models/oak_tree/model.sdf  -x 5 -y 5 -sdf -model model3.sdf" />
+
+	<node name="urdf_spawner4" pkg="gazebo_ros" type="spawn_model"
+		respawn="false" output="screen"
+		args="-file '$(find agn_gazebo)'/models/pine_tree/model.sdf  -x -5 -y 5 -sdf -model model4.sdf" />
+
+	<node name="urdf_spawner5" pkg="gazebo_ros" type="spawn_model"
+		respawn="false" output="screen"
+		args="-file '$(find agn_gazebo)'/models/ambulance/model.sdf  -x -8 -y 1 -sdf -model model5.sdf" />
+
+	<node name="urdf_spawner6" pkg="gazebo_ros" type="spawn_model"
+		respawn="false" output="screen"
+		args="-file '$(find agn_gazebo)'/models/person_standing/model.sdf  -x -2 -y 3.5 -sdf -model model6.sdf" />
+
+	<node name="urdf_spawner7" pkg="gazebo_ros" type="spawn_model"
+		respawn="false" output="screen"
+		args="-file '$(find agn_gazebo)'/models/person_standing/model.sdf  -x 2 -y 3 -sdf -model model7.sdf" />
+
+	<node name="urdf_spawner8" pkg="gazebo_ros" type="spawn_model"
+		respawn="false" output="screen"
+		args="-file '$(find agn_gazebo)'/models/person_standing/model.sdf  -x 0 -y 2 -sdf -model model8.sdf" />
+
+	<node name="urdf_spawner9" pkg="gazebo_ros" type="spawn_model"
+		respawn="false" output="screen"
+		args="-file '$(find agn_gazebo)'/models/house_1/model.sdf  -x 20 -y 0 -Y -1.57 -sdf -model model9.sdf" />
+
+  <!-- RViz -->
+  <arg name="rviz" default="true"/>
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="$(anon rviz)" respawn="false" output="screen" args="-d $(find velodyne_description)/rviz/example.rviz" />
+
+	<!-- make animated persons -->
+	<node name="agn_gazebo" pkg="agn_gazebo" type="make_animated_persons.py" output="screen" clear_params="true">
+        <param name="model_name" value="model8.sdf" />
+        <param name="sleep" value=".1" />
+        <param name="radius" value="2" />
+        <param name="step" value=".01" />
+    </node>
+
+
+</launch>
