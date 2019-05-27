@@ -24,7 +24,7 @@ roslaunch agn_gazebo static_velodyne.launch
 ---
 
 ## Pioneer P3DX Gazebo model
-A Gazebo model in order to wall following and go-to algorithms purpose like the [Bug](https://github.com/agn-7/bugs) navigation algorithm 
+A Gazebo model in order to [wall-following]() and go-to algorithms purpose like the [Bug](https://github.com/agn-7/bugs) navigation algorithm 
 
 ### Usage:
 Launch its launch file:
@@ -37,7 +37,7 @@ roslaunch agn_gazebo gazebo.launch
 ---
 
 ## Rescue robot exploration Gazebo model
-A Gazebo model in order to prepare an environmental for a rescue robot on [Exploration]() task in a ramped maze map. 
+A Gazebo model in order to prepare an environment for a rescue robot on [Exploration]() task in a ramped maze map. 
 
 ### Usage:
 Launch its launch file:
