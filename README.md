@@ -1,4 +1,4 @@
-### Compatiblity Versions:
+### Compatible Versions:
  - *ROS: Kinetic*
  - *OS: Ubuntu-16.04*
  - *Gazebo 7.0*
