@@ -1,3 +1,8 @@
+### Compatiblity Versions:
+ - *ROS: Kinetic*
+ - *OS: Ubuntu-16.04*
+ - *Gazebo 7.0*
+
 # Dependencies:
  - [Velodyne Simulator](https://github.com/agn-7/modified_velodyne_simulator)
 
