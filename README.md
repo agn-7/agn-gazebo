@@ -44,9 +44,9 @@ A Gazebo model in order to [wall-following]() and go-to algorithms purpose like 
 Launch its launch file:
 
 ```
-roslaunch agn_gazebo gazebo.launch
+roslaunch agn_gazebo pioneer.launch
 ```
-![](url "Person and LiDAR")
+![default_gzclient_camera(1)-2019-05-30T15_22_49 379103](https://user-images.githubusercontent.com/14202344/58628547-3638d680-82ef-11e9-91a0-3ee7d6ac8893.jpg "Ready to wall following or goto x,y scenario")
 
 ---
 
@@ -60,6 +60,6 @@ Launch its launch file:
 roslaunch agn_gazebo rescue.launch
 ```
 
-![](url "Person and LiDAR")
+![](url "Rescue robot in maze map")
 
 ---
