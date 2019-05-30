@@ -69,12 +69,14 @@
   <node if="$(arg rviz)" pkg="rviz" type="rviz" name="$(anon rviz)" respawn="false" output="screen" args="-d $(find velodyne_description)/rviz/example.rviz" />
 
 	<!-- make animated persons -->
-	<node name="agn_gazebo" pkg="agn_gazebo" type="make_animated_persons.py" output="screen" clear_params="true">
-        <param name="model_name" value="model8.sdf" />
+	<!--node name="agn_gazebo" pkg="agn_gazebo" type="make_animated_persons.py" output="screen" clear_params="true">
+        <param name="rotary_model_name" value="model8.sdf" />
+        <param name="linear_model_name" value="model7.sdf" />
         <param name="sleep" value=".1" />
         <param name="radius" value="2" />
         <param name="step" value=".01" />
-    </node>
+        <param name="reach" value="10" />
+    </node-->
 
 
 </launch>

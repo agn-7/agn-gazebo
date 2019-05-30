@@ -1,0 +1,13 @@
+<launch>
+
+	<!-- make animated persons -->
+	<node name="agn_gazebo" pkg="agn_gazebo" type="make_animated_persons.py" output="screen" clear_params="true">
+        <param name="rotary_model_name" value="model8.sdf" />
+        <param name="linear_model_name" value="model7.sdf" />
+        <param name="sleep" value=".02" />
+        <param name="radius" value="2" />
+        <param name="step" value=".01" />
+        <param name="reach" value="10" />
+    </node>
+
+</launch>

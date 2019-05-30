@@ -21,7 +21,9 @@ reference_frame: world}}'
 RADIUS = float(rospy.get_param('/agn_gazebo/radius'))
 STEP = float(rospy.get_param('/agn_gazebo/step'))
 SLEEP = float(rospy.get_param('/agn_gazebo/sleep'))
-MODEL_NAME = rospy.get_param('/agn_gazebo/model_name')
+ROTARY_MODEL_NAME = rospy.get_param('/agn_gazebo/rotary_model_name')
+REACH = float(rospy.get_param('/agn_gazebo/reach'))
+LINEAR_MODEL_NAME = rospy.get_param('/agn_gazebo/linear_model_name')
 
 
 class Animating(object):
@@ -32,25 +34,37 @@ class Animating(object):
         srv_ = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
 
         try:
-            index_ = models_state.name.index(MODEL_NAME)
+            index_ = models_state.name.index(ROTARY_MODEL_NAME)
+            index_2 = models_state.name.index(LINEAR_MODEL_NAME)
         except:
             index_ = -1
+            index_2 = -1
 
+        '''Get rotary model init pose'''
         init_x = models_state.pose[index_].position.x
         init_y = models_state.pose[index_].position.y
+
+        '''Get linear model init pose'''
+        init_x_2 = models_state.pose[index_2].position.x
+        init_y_2 = models_state.pose[index_2].position.y
+
         msg_ = ModelState()
-        msg_.model_name = MODEL_NAME
+        msg_2 = ModelState()
+        msg_.model_name = ROTARY_MODEL_NAME
+        msg_2.model_name = LINEAR_MODEL_NAME
+
+        '''Circle equation: (x-a)**2 + (y-b)**2 = r**2'''
         a = init_x - RADIUS
         b = init_y
         x_sign = -1  # Counterclockwise
         y_sign = 1
         msg_.pose.position.x = init_x
-        print(a, b)
-        print(init_x, init_y)
-        sleep(5)
+        msg_2.pose.position.y = init_y_2
+        sleep(1)
 
         try:
             while True:
+                '''Rotary model movement'''
                 msg_.pose.position.x += STEP * x_sign
                 msg_.pose.position.y = (math.sqrt(abs(RADIUS**2 -
                                                       (msg_.pose.position.x - a)**2)) * y_sign) + b
@@ -67,7 +81,24 @@ class Animating(object):
                 msg_.twist.angular.z = 0
                 msg_.reference_frame = 'world'
 
+                '''Linear model movement'''
+                msg_2.pose.position.x = init_x_2
+                msg_2.pose.position.y += STEP * x_sign
+                msg_2.pose.position.z = 0
+                msg_2.pose.orientation.x = 0
+                msg_2.pose.orientation.y = 0
+                msg_2.pose.orientation.z = 0
+                msg_2.pose.orientation.w = 0
+                msg_2.twist.linear.x = 0
+                msg_2.twist.linear.y = 0
+                msg_2.twist.linear.z = 0
+                msg_2.twist.angular.x = 0.0
+                msg_2.twist.angular.y = 0
+                msg_2.twist.angular.z = 0
+                msg_2.reference_frame = 'world'
+
                 res = srv_(msg_)
+                srv_(msg_2)
                 print(res)
                 sleep(SLEEP)
 
