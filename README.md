@@ -31,9 +31,10 @@ Launch its launch files:
     roslaunch agn_gazebo animated_person.launch
     roslaunch agn_gazebo movement.launch
     ```
-*Gazebo:* 
+Gazebo:
 ![default_gzclient_camera(1)-2019-05-23T15_06_12 310211](https://user-images.githubusercontent.com/14202344/58246505-7dade880-7d6c-11e9-8482-28f42baeb138.jpg "Person and LiDAR")
-*Rviz:*
+
+Rviz:
 ![RVIZ-MARKER](https://user-images.githubusercontent.com/14202344/58627451-911cfe80-82ec-11e9-8270-592f09e5c37a.png "Animated person and LiDAR") 
 ---
 
