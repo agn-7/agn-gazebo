@@ -1,0 +1,9 @@
+<launch>
+
+	<!-- export persons ground truth positions -->
+	<node name="agn_gazebo" pkg="agn_gazebo" type="groundtruth.py" output="screen" clear_params="true">
+        <param name="rotary_model_name" value="model8.sdf" />
+        <param name="linear_model_name" value="model7.sdf" />
+    </node>
+
+</launch>
