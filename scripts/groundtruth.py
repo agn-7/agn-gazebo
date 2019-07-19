@@ -3,16 +3,11 @@
 import rospy
 
 from gazebo_msgs.msg import ModelStates
+from sensor_msgs.msg import PointCloud2
 
 
 __author__ = 'aGn'
 
-DUMMY = """
-rosservice call /gazebo/set_model_state '{model_state: {model_name: model1.sdf, 
-pose: {position: {x: 0.0, y: 0.0 ,z: 0.1}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 0.0}},
-twist: {linear: {x: 0.0 , y: 0 ,z: 0}, angular: {x: 0.0 , y: 0 , z: 0.0}},
-reference_frame: world}}'
-"""
 
 ROTARY_MODEL_NAME = rospy.get_param('/agn_gazebo/rotary_model_name')
 LINEAR_MODEL_NAME = rospy.get_param('/agn_gazebo/linear_model_name')
@@ -20,7 +15,12 @@ LINEAR_MODEL_NAME = rospy.get_param('/agn_gazebo/linear_model_name')
 
 class GroundTruth(object):
     def __init__(self):
+        self.frame = 0
         rospy.Subscriber("/gazebo/model_states", ModelStates, self.export_pose, queue_size=1)
+        rospy.Subscriber("/velodyne_points", PointCloud2, self.get_frame, queue_size=1)
+
+    def get_frame(self, pcl):
+        self.frame += 1
 
     def export_pose(self, models_state):
         try:
@@ -39,11 +39,11 @@ class GroundTruth(object):
         pose_y_2 = models_state.pose[index_2].position.y
 
         with open('/home/agn/groundtruth_linear.csv', mode='a') as file_:
-            file_.write("{},{}".format(pose_x_1, pose_y_1))
+            file_.write("{},{},{}".format(self.frame, pose_x_1, pose_y_1))
             file_.write("\n")
 
         with open('/home/agn/groundtruth_rotary.csv', mode='a') as file_:
-            file_.write("{},{}".format(pose_x_2, pose_y_2))
+            file_.write("{},{},{}".format(self.frame, pose_x_2, pose_y_2))
             file_.write("\n")
 
 
