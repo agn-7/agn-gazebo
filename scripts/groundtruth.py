@@ -8,14 +8,15 @@ from sensor_msgs.msg import PointCloud2
 
 __author__ = 'aGn'
 
-
 ROTARY_MODEL_NAME = rospy.get_param('/agn_gazebo/rotary_model_name')
 LINEAR_MODEL_NAME = rospy.get_param('/agn_gazebo/linear_model_name')
+PATH_TO_SAVE = rospy.get_param('/agn_gazebo/path_to_save')
 
 
 class GroundTruth(object):
     def __init__(self):
         self.frame = 0
+        print("The .csv files store in " + PATH_TO_SAVE)
         rospy.Subscriber("/gazebo/model_states", ModelStates, self.export_pose, queue_size=1)
         rospy.Subscriber("/velodyne_points", PointCloud2, self.get_frame, queue_size=1)
 
@@ -38,11 +39,11 @@ class GroundTruth(object):
         pose_x_2 = models_state.pose[index_2].position.x
         pose_y_2 = models_state.pose[index_2].position.y
 
-        with open('/home/agn/groundtruth_linear.csv', mode='a') as file_:
+        with open(PATH_TO_SAVE + 'groundtruth_linear.csv', mode='a') as file_:
             file_.write("{},{},{}".format(self.frame, pose_x_1, pose_y_1))
             file_.write("\n")
 
-        with open('/home/agn/groundtruth_rotary.csv', mode='a') as file_:
+        with open(PATH_TO_SAVE + 'groundtruth_rotary.csv', mode='a') as file_:
             file_.write("{},{},{}".format(self.frame, pose_x_2, pose_y_2))
             file_.write("\n")
 
