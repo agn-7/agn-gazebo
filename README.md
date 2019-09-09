@@ -5,6 +5,7 @@
 
 # Dependencies:
  - [Velodyne Simulator](https://github.com/agn-7/modified_velodyne_simulator)
+ - ```sudo apt-get install ros-kinetic-husky-gazebo```
 
 ---
 # Install:
@@ -66,6 +67,6 @@ Launch its launch file:
 roslaunch agn_gazebo rescue.launch
 ```
 
-![](url "Rescue robot in maze map")
+![default_gzclient_camera(1)-2019-09-09T13_59_48 114326](https://user-images.githubusercontent.com/14202344/64522067-6f311000-d30e-11e9-8a6e-b416ad28bdd3.jpg "Rescue robot in maze map")
 
 ---
