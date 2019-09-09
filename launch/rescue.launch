@@ -1,26 +1,15 @@
 <?xml version="1.0"?>
 
 <launch>
-	<arg name="paused" default="false" />
-	<arg name="use_sim_time" default="true" />
-	<arg name="gui" default="true" />
-	<arg name="headless" default="false" />
-	<arg name="debug" default="false" />
+  <arg name="gui" default="true"/>
+  <arg name="gazebo_args" default="-u"/>
 
-	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-		<arg name="world_name" value="$(find agn_gazebo)/worlds/rc_2016_arena_exp1.world" />
-		<arg name="debug" value="$(arg debug)" />
-		<arg name="gui" value="$(arg gui)" />
-		<arg name="paused" value="$(arg paused)" />
-		<arg name="use_sim_time" value="$(arg use_sim_time)" />
-		<arg name="headless" value="$(arg headless)" />
-	</include>
+  <include file="$(find agn_gazebo)/launch/start.launch">
+   <arg name="world" value="rescue_simple.world"/>
+   <arg name="gui" value="$(arg gui)"/>
+   <arg name="gazebo_args" value="-u"/>
+  </include>
 
-	<param name="robot_description"
-		command="$(find xacro)/xacro.py '$(find p3dx_description)/urdf/pioneer3dx.xacro'" />
+<include file="$(find husky_gazebo)/launch/spawn_husky.launch" />
 
-	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-		respawn="false" output="screen" args="-urdf -model p3dx -param robot_description" />
-	
-	<node pkg="tf" type="static_transform_publisher" name="lms100_tf" args="1 0 0 0 0 0 1 base_link lms100 100" />
 </launch>
