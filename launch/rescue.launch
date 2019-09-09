@@ -8,7 +8,7 @@
 	<arg name="debug" default="false" />
 
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-		<arg name="world_name" value="/home/benyamin/gazebo-worlds/rc_2016_arena_exp1.world" />
+		<arg name="world_name" value="$(find agn_gazebo)/worlds/rc_2016_arena_exp1.world" />
 		<arg name="debug" value="$(arg debug)" />
 		<arg name="gui" value="$(arg gui)" />
 		<arg name="paused" value="$(arg paused)" />
