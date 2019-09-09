@@ -6,6 +6,7 @@
 # Dependencies:
  - [Velodyne Simulator](https://github.com/agn-7/modified_velodyne_simulator)
  - ```sudo apt-get install ros-kinetic-husky-gazebo```
+ - [Hector NIST Arenas Elements](https://github.com/tu-darmstadt-ros-pkg/hector_nist_arenas_gazebo)
 
 ---
 # Install:
